@@ -10,18 +10,17 @@ const blogsSchema = new mongoose.Schema({
         type : String, 
         required : [true , "Description is required"]
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-    },
-    date :
-    {
-       type: Date,
-       default: Date.now,
+    userName : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "User",
+        required : [true , "Blog username is required"]
     }
-}  
+},
+{
+    timestamps : true
+}
 )
 
 
 
-export default mongoose.model("UserBlogs" , blogsSchema)
+export default mongoose.model("Blogs" , blogsSchema)
